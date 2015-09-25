@@ -14,7 +14,7 @@ infix 10 [_]
 data Digit : (r : ℕ) → Set where
   [_] : {r : ℕ} (k : Fin $ ℕ.suc r) → Digit (ℕ.suc r)
 
-getDigit : {r : ℕ} (d : Digit (ℕ.suc r)) → Fin (ℕ.suc r)
+getDigit : {r : ℕ} (d : Digit r) → Fin r
 getDigit [ k ] = k
 
 toℕ : {r : ℕ} (d : Digit r) → ℕ
