@@ -78,7 +78,7 @@ _+_-toℕ = plus-toℕ (≤′⇒≤ ℕ.≤′-refl)
 infix 5 _+_′_
 _+_′_ : {n : ℕ} (k l : Fin n) (c : Bool) → Bool × Fin n
 k + l ′ c =
-  let (c₁ , sk)   = (if c then suc else (const $ (false , k))) k
+  let (c₁ , sk)   = if c then suc k else (false , k)
       (c₂ , sk+l) = sk + l
   in c₁ ∨ c₂ , sk+l
 
