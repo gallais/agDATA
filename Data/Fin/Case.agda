@@ -21,8 +21,8 @@ caseFin₁ {ℕ.suc n} (F.suc k)  =
 caseFin : {n : ℕ} (m : ℕ) (k : Fin (m ℕ.+ n)) → (∃ λ (l : Fin n) → k ≡ F.raise m l)
                                               ⊎ (∃ λ (l : Fin m) → k ≡ F.inject+ n l)
 caseFin ℕ.zero    k           = inj₁ (k , refl)
-caseFin (ℕ.suc m) Fin.zero    = inj₂ (Fin.zero , refl)
-caseFin (ℕ.suc m) (Fin.suc k) =
+caseFin (ℕ.suc m) F.zero    = inj₂ (Fin.zero , refl)
+caseFin (ℕ.suc m) (F.suc k) =
   case caseFin m k of λ
      { (inj₁ (l , pr)) → inj₁ (l , cong F.suc pr)
      ; (inj₂ (l , pr)) → inj₂ (F.suc l , cong F.suc pr)
